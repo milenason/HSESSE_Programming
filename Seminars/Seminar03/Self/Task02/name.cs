@@ -1,18 +1,29 @@
 using System;
 
-class Program {
-    static void Main() {
-        int n = int.Parse(Console.ReadLine());
-        double l = double.Parse(Console.ReadLine());
-        if (l > 0 && n >= 1 && n <= 11)
+class Program
+{
+    public static void Main()
+    {
+        double x, y;
+        Console.Write("Введите x: ");
+        x = double.Parse(Console.ReadLine());
+        Console.Write("Введите y: ");
+        y = double.Parse(Console.ReadLine());
+
+        if (y > 0 && x * x + y * y > 1 * 1 && x * x + y * y < 2 * 2)
         {
-            double s = (n * l * l) / (4 * Math.Tan(Math.PI/n));
-            Console.WriteLine(s);
+            Console.WriteLine($"Точка [{x}, {y}] попала внутрь области");
         }
-        else
+        else if (y == 0 && x * x + y * y > 1 * 1 && x * x + y * y < 2 * 2
+            || y > 0 && x * x + y * y == 1 * 1 && x * x + y * y < 2 * 2
+            || y > 0 && x * x + y * y > 1 * 1 && x * x + y * y == 2 * 2)
         {
-            Console.WriteLine("Некорректные значения");
+            Console.WriteLine($"Точка [{x}, {y}] попала на границу области");
         }
-        
+        else 
+        {
+            Console.WriteLine($"Точка [{x}, {y}] попала за границу области");
         }
+
+    }
 }
