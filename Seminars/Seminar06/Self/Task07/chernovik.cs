@@ -35,9 +35,7 @@ class Program
         Console.ReadKey();
 
 
-        do
-        {
-            bool ii = true;
+        bool ii = true;
             bool m = true;
             while (ii)
             {
@@ -47,24 +45,19 @@ class Program
                     decimal a = decimal.Parse(Console.ReadLine());
                     decimal b = decimal.Parse(Console.ReadLine());
                     Console.WriteLine(a / b);
-                    m = false;
+                    ii = false;
 
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("некорректные данные");
-                    m = true;
+                    Console.ReadKey();
+                    ii = true;
 
-                }
-                if (m == false)
-                {
-                    ii = false;
                 }
 
             }
+            Console.ReadKey();
             Console.WriteLine("Для выхода из программы нажмите ESC...");
-
-        }
-        while (Console.ReadKey().Key != ConsoleKey.Escape);
     }
 }
